@@ -58,3 +58,10 @@ mdat <-  matrix(c(1, 2, 3, 4, 5, 6),
                 byrow = TRUE)
 mdat
 mdat[2,3]
+
+x <- list(1, "a", TRUE)
+x
+
+xlist <-list(a = "karthik ram", b = 1:10, data = head(iris))
+xlist
+names(xlist)
