@@ -65,3 +65,19 @@ x
 xlist <-list(a = "karthik ram", b = 1:10, data = head(iris))
 xlist
 names(xlist)
+
+dat <-  data.frame(id = letters[1:10], x = 1:10, y = 11:20 )
+dat
+is.list(dat)
+class(dat)
+dat[1, 3]
+dat("y")
+dat[["y"]]
+dat$y
+
+
+library(psych)
+describe(mtcars$mpg)
+psych::describe(mtcars$mpg)
+
+
