@@ -25,8 +25,9 @@ m2<-c(mh2, mw2)
 p1<-cbind(pl1,pw1)
 p2<-cbind(pl2,pw2)
 p<-rbind(p1,p2)
-# plot(p,xlim=c(182,192),ykim=c(82,92),xlab="Height",ylab="Weight",type="n")
+# plot(p,xlim=c(2.5,7.5),ykim=c(0.5, 3.5),xlab="length",ylab="width",type="n")
 # text(p,labels=as.character(class))
+
 
 cov1<-solve(cov(p1))
 cov2<-solve(cov(p2))
@@ -37,9 +38,3 @@ dist1<-binorm(XY,m1,det(cov(p1)),cov1)
 dist2<-binorm(XY,m2,det(cov(p2)),cov2)
 contour(x,y,matrix(dist1,length(x),length(y)),nlevels=20,add=T,lty=3)
 contour(x,y,matrix(dist2,length(x),length(y)),nlevels=20,add=T,lty=3)
-
-S<-cov1-cov2
-c<-m2%*%cov2 - m1%*%cov1
-F<-t(m1)%*%cov1%*%m1 - t(m2)%*%cov2%*%m2 + log(det(cov(p1))/det(cov(p2)))
-res<-qdaPR(XY,S,c,F)
-contour(x,y,matrix(res,length(x),length(y)),levels=0.0,add=T,lty=3)
