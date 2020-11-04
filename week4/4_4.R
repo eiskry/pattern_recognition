@@ -15,6 +15,4 @@ for (i in 1:10){
   knn_k <- knn(train,test,cl,k,prob=TRUE) 
   x <- c(x,list((sum(cl!=knn_k))/50 ))
 }
-x
-k_list
 plot(k_list,x)
