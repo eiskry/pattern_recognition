@@ -1,1 +1,1 @@
-# pattern_recognition
+# パターン認識
