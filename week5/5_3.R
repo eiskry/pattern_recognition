@@ -6,13 +6,16 @@ c(rep("s",25),rep("c",25),rep("v",25))
 cl <- factor(c(rep("s",25),rep("c",25),rep("v",25)))
 
 ir.lda <- lda(train,cl)
-
+ir.lda
 ir.test <- predict(ir.lda,test)
 ir.test$class != cl
 test[ir.test$class != cl,]
 
+
 ir.test$x
-# plot(ir.test$x, type="n", labels = as.character(ir.test$class))
+# plot(ir.test$x, type="n")
+plot(ir.test$x, type="n", xlab="Value of First discriminant function (Coefficients: LD1)", 
+     ylab = "Value of Second discriminant function(Coefficients: LD2)")
 text(ir.test$x, labels=as.character(cl))
 
 plot(ir.lda, 　dimen=1)
@@ -36,9 +39,8 @@ ir.glmpred23 <- predict(ir.glm23)
 ir.glmpred23
 plot(ir.glmpred23)
 
-ir.glmpred23_ <- predict(ir.glm23,type = "response")
-ir.glmpred23_
-plot(ir.glmpred23_)
+ir.glmpred23 <- predict(ir.glm23,type = "response")
+plot(ir.glmpred23)
 
 
 table(ir.sp23, glmClass23(ir.glmpred23))
