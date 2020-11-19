@@ -61,6 +61,7 @@ classes <- model %>% predict_classes(test.data, batch_size = 128)
 
 
 ##################### 学習結果の解析
+
 wgts <- get_weights(model)
 wgts                                     
 
