@@ -22,10 +22,13 @@ svc <- rbind(sv, vc)
 
 ind <- sample(1:nrow(svc), nrow(svc)*2/3) # 全体の2/3を学習データに
 train.data <- svc[ind, 1:4]
+train.data
 test.data <- svc[-ind, 1:4] # 残りの1/3をテストデータに
+test.data
 train.targets <- svc[ind, 5]
+train.targets
 test.targets <- svc[-ind, 5]
-
+test.targets
 
 ##################### モデルの構築
 
@@ -34,8 +37,12 @@ model <- keras_model_sequential()
 
 ######## model内部の構造の構築
 model %>% 
-  layer_dense( units = 8, activation = 'sigmoid', input_shape = c(4)) %>%
-  layer_dense( units = 1, activation = 'sigmoid')
+ layer_dense( units = 16, activation = 'sigmoid', input_shape = c(4) ) %>%
+ layer_dense( units = 1, activation = 'sigmoid' )
+
+# model %>% 
+  # layer_dense( units = 16, activation = 'sigmoid', input_shape = c(4), kernel_regularizer = regularizer_l2(0.001) ) %>%
+  # layer_dense( units = 1, activation = 'sigmoid', kernel_regularizer = regularizer_l2(0.001) )
 
 ######## modelのコンパイル
 model %>% 
@@ -57,27 +64,38 @@ history <- model %>% fit(
 score <- model %>% evaluate(test.data, test.targets, batch_size=128)
 print(score)
 
+## テストデータに対してモデルが識別したクラスを得る
 classes <- model %>% predict_classes(test.data, batch_size = 128)
-
+test.targets
+classes
+table(test.targets,classes)
 
 ##################### 学習結果の解析
 
 wgts <- get_weights(model)
-wgts                                     
+wgts         
+hist(wgts[[1]], breaks=seq(-4,4,0.2), freq=TRUE)
+test.data
 
+##################### 素子出力の観測
+######## モデルの各層の出力の観測
 layer_outputs <- lapply(model$layers, function(layer) layer$output)
 model$layers
-
 layer_outputs
 
-
+######## ある入力に対する出力を計算するモデルを定義する
 activation_model <- keras_model(inputs = model$input, outputs = layer_outputs)
 model$input
 activation_model
 
-test <- array_reshape(test.data[1, ], c(1,4))
+######## 入力データを用意する
+test <- array_reshape(test.data[50, ], c(1,4))
+test.data
+test
+
+######## 入力に対する各層の素子の出力を計算する
 activations <- activation_model %>% predict(test)
 activations
 
 first_layer_activation <- activations[[1]]
-barplot(first_layer_activation, names=1:8)
+barplot(first_layer_activation, names=1:16)
