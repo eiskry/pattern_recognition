@@ -1,4 +1,4 @@
 # パターン認識
-R
-Python
-Keras
+- R
+- Python
+- Keras
