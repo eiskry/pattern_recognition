@@ -1,4 +1,3 @@
-install.packages('e1071')
 library(e1071)
 library(MASS)
 
@@ -9,7 +8,9 @@ y <- c("-1","1","1","-1")
 xor <- data.frame(X1 = x1, X2 = x2, classes = y)
 xor$classes <- as.factor(xor$classes)
 xor
-model1 <- svm(classes~., data=xor, kernel="polynomial", degree=1, coef0=1, cost=1)
+
+model1 <- 
+  svm(classes~., data=xor, kernel="polynomial", degree=1, coef0=1, cost=1)
 
 pred1<-predict(model1,xor)
 table(xor$classes,predict(model1,xor))

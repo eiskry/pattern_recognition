@@ -11,13 +11,8 @@ ir.train
 ir.test <- ir[-samp,]
 ir.test
 
-
-# xdata <- data.frame(ir.train)
-# xdata
-# xdata$species <- as.factor(data$species)
-# xdata
-
-model <- svm(species~., data=ir.train, kernel="polynomial", degree=1, coef0=1, cost=1)
+model <- 
+  svm(species~., data=ir.train, kernel="polynomial", degree=1, coef0=1, cost=1)
 
 pred <-predict(model,ir.train)
 pred
@@ -29,8 +24,30 @@ table(ir.train$species,predict(model,ir.train))
 summary(model)
 
 ##### 3
-table(ir.test$species,predict(model,ir.test))
+table(ir.test$species,predict(model,ir.train))
 
 ##### 4
-model <- svm(species~., data=ir.train, kernel="polynomial", degree=1, coef0=1, cost=1)
+model2 <- 
+  svm(species~., data=ir.train, kernel="polynomial", degree=6, coef0=1, cost=1)
+
+table(ir.train$species,predict(model2,ir.train))
+
+##### 5
+summary(model2)
+
+##### 6
+table(ir.test$species,predict(model2,ir.train))
+
+##### 7
+model3 <- 
+  svm(species~., data=ir.train, kernel="polynomial", degree=4, coef0=1, cost=10)
+
+table(ir.train$species,predict(model3,ir.train))
+
+##### 8
+summary(model3)
+
+##### 9
+table(ir.test$species,predict(model3,ir.test))
+
 
