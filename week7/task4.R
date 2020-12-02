@@ -11,10 +11,10 @@ ir.train
 ir.test <- ir[-samp,]
 ir.test
 
-#############################
+#############################  gammma = 0.01
 
 modelsvm=svm(species~.,data=ir.train,type="C",kernel="radial",
-            gamma=0.1, cost=100)
+            gamma=0.01, cost=10000)
 
 pred <-predict(modelsvm,ir.train)
 
@@ -28,10 +28,10 @@ summary(modelsvm)
 table(ir.test$species,predict(modelsvm,ir.test))
 
 
-#############################
+############################# gammma = 0.1
 
 modelsvm2=svm(species~.,data=ir.train,type="C",kernel="radial",
-             gamma=1, cost=1)
+             gamma=0.1, cost=100)
 
 pred <-predict(modelsvm2,ir.train)
 
@@ -46,10 +46,10 @@ table(ir.test$species,predict(modelsvm2,ir.test))
 
 
 
-#############################
+#############################　gammma = 1
 
 modelsvm3=svm(species~.,data=ir.train,type="C",kernel="radial",
-              gamma=10, cost=1)
+              gamma=1, cost=10)
 
 pred <-predict(modelsvm3,ir.train)
 
@@ -61,3 +61,19 @@ summary(modelsvm3)
 
 ##### 3
 table(ir.test$species,predict(modelsvm3,ir.test))
+
+#############################　gammma = 10
+
+modelsvm4=svm(species~.,data=ir.train,type="C",kernel="radial",
+              gamma=10, cost=1)
+
+pred <-predict(modelsvm4,ir.train)
+
+###### 1
+table(ir.train$species,predict(modelsvm4,ir.train))
+
+##### 2
+summary(modelsvm4)
+
+##### 3
+table(ir.test$species,predict(modelsvm4,ir.test))

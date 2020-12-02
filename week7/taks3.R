@@ -24,11 +24,11 @@ table(ir.train$species,predict(model,ir.train))
 summary(model)
 
 ##### 3
-table(ir.test$species,predict(model,ir.train))
+table(ir.test$species,predict(model,ir.test))
 
 ##### 4
 model2 <- 
-  svm(species~., data=ir.train, kernel="polynomial", degree=6, coef0=1, cost=1)
+  svm(species~., data=ir.train, kernel="polynomial", degree=3, coef0=1, cost=1)
 
 table(ir.train$species,predict(model2,ir.train))
 
@@ -36,11 +36,11 @@ table(ir.train$species,predict(model2,ir.train))
 summary(model2)
 
 ##### 6
-table(ir.test$species,predict(model2,ir.train))
+table(ir.test$species,predict(model2,ir.test))
 
 ##### 7
 model3 <- 
-  svm(species~., data=ir.train, kernel="polynomial", degree=4, coef0=1, cost=10)
+  svm(species~., data=ir.train, kernel="polynomial", degree=2, coef0=1, cost=10)
 
 table(ir.train$species,predict(model3,ir.train))
 
