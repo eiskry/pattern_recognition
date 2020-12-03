@@ -10,9 +10,9 @@ data$classes <- as.factor(data$classes)
 data
 
 model1 <- 
-  svm(classes~., data=xor, kernel="polynomial", degree=1, coef0=1, cost=1)
+  svm(classes~., data=data, kernel="polynomial", degree=1, coef0=1, cost=1)
 
-pred1<-predict(model1,xor)
+pred1<-predict(model1,data)
 pred1
 table(xor$classes,predict(model1,xor))
 

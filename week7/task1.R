@@ -13,6 +13,7 @@ model1 <-
   svm(classes~., data=xor, kernel="polynomial", degree=1, coef0=1, cost=1)
 
 pred1<-predict(model1,xor)
+pred1
 table(xor$classes,predict(model1,xor))
 
 plot(model1,xor,xlim=c(-0.1,1.1),ylim=c(-0.1,1.1))
