@@ -1,7 +1,9 @@
 source("bisect.R")
 data(iris)
 petal <- subset(iris,select=c(Petal.Length, Petal.Width))
+petal
 petal.labels <- c(rep(1,50),rep(2,50),rep(3,50))
+petal.labels
 petalsc <- scale(petal)
 petalsc
 

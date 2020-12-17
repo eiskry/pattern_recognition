@@ -12,7 +12,7 @@ class1 = rmvnorm(n = 50,Mu1, sigma1)
 class1
 
 # class2
-# 平均値:x=23, y=15
+# 平均値:x=45, y=15
 # 標準偏差：x=6, y=8
 # 相関係数：0.5
 Mu2 <- c(45,15)
@@ -39,7 +39,9 @@ datasc
 
 datasc.complete = hclust(dist(datasc), method="complete")
 plclust(datasc.complete)
-cutree(datasc.complete,3)
+result1 <- cutree(datasc.complete,3)
+
+table(data.labels, result1)
 
 datasc.ward = hclust(dist(datasc), method="ward.D")
 plclust(datasc.ward)
