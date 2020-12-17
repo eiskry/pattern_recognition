@@ -10,7 +10,7 @@ sigma1 <- matrix(c(25, 28, 28, 49), ncol=2)
 class1 = rmvnorm(n = 50,Mu1, sigma1)
 
 # class2
-# 平均値:x=23, y=15
+# 平均値:x=45, y=15
 # 標準偏差：x=6, y=8
 # 相関係数：0.5
 Mu2 <- c(45,15)
@@ -31,9 +31,9 @@ data.labels <- c(rep(1,50),rep(2,50),rep(3,50))
 datasc <- scale(data)
 datasc
 
-irEM <- Mclust(iris[,3:4])
-irEM
-plot(irEM)
-names(irEM)
-irEM$classification
-table(petal.labels, irEM$classification)
+irEM2 <- Mclust(datasc)
+irEM2
+plot(irEM2)
+names(irEM2)
+irEM2$classification
+table(data.labels, irEM2$classification)
