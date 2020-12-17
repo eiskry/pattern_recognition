@@ -12,6 +12,5 @@ summary(ir.pr)
 ir.pre <- predict(ir.pr)
 ir.pre
 library(MASS)
-eqscplot((ir.pre[,1:2]),pch = c("1", "2", "3")[unclass(iris.labels)], col = c("red", "green3", "blue")[unclass(iris.species)],
-         xlab = "PC1", ylab = "PC2")
+eqscplot((ir.pre[,1:2]),pch = iris.labels+1, col = iris.species,xlab = "PC1", ylab = "PC2")
 
