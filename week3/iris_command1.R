@@ -18,5 +18,6 @@ m2<-c(mh2, mw2)
 p1<-cbind(pl1,pw1)
 p2<-cbind(pl2,pw2)
 p<-rbind(p1,p2)
+p
 plot(p,xlim=c(2.5,7.5),ylim=c(0.5, 3.0),xlab="length",ylab="width",type="n")
 text(p,labels=as.character(class))
