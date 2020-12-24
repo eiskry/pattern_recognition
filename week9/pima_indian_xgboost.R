@@ -9,8 +9,10 @@ pimaTest <- Pima.te
 yTrain <- pimaTrain[,8]
 yTrain
 yTrain <- as.integer(yTrain) -1
+yTrain
 yTest <- pimaTest[,8]
 yTest <- as.integer(yTest) -1
+yTest
 dtrain <- xgb.DMatrix(data=as.matrix(pimaTrain[,1:7]), label=yTrain)
 mode(dtrain)
 dtest <- xgb.DMatrix(data=as.matrix(pimaTest[,1:7]), label=yTest)
