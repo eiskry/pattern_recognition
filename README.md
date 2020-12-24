@@ -1,3 +1,3 @@
-# パターン認識
+# パターン認識 Pattern Recognition
 - R
 - Keras
