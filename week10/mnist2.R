@@ -89,10 +89,12 @@ activations <- activation_model %>% predict(test)
 #activations をそのまま出力すると、モデルの全ての素子の出力が表示されるので注意すること
 str(activations) 　
 activations
+six_layer_activation = activations[[6]]
 seven_layer_activation = activations[[7]]
 last_layer_activation = activations[[8]]
 seven_layer_activation
 last_layer_activation
+
 barplot(seven_layer_activation, names = 1:128)
 barplot(last_layer_activation, names = 0:9)
 
