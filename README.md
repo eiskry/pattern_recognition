@@ -1,6 +1,4 @@
 # パターン認識 Pattern Recognition
-### Language
-- R
 
 ### Topics
 1. 統計解析環境Rの使い方
@@ -12,3 +10,6 @@
 1. 部分空間法＋クラスタリング
 1. 識別器の組み合わせによる性能強化
 1. CNN 手書き数字認識　
+
+### Language
+- R
