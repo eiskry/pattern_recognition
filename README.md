@@ -1,9 +1,9 @@
 # パターン認識 Pattern Recognition
-Language
+### Language
 - R
 
-Topics
--1 統計解析環境Rの使い方
+### Topics
+1- 統計解析環境Rの使い方
 -1 ベイズの識別規則
 -1 確率モデル
 -1 k最近傍法（kNN法）
